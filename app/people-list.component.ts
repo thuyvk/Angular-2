@@ -8,7 +8,7 @@ import { PeopleService } from './people.service';
     template: `
     <ul>
         <li *ngFor="let person of people">
-        <a href='#' (click)='selectPerson(person)'>
+        <a href='javascript:;' (click)='selectPerson(person)'>
         {{person.name}}
         </a>
         </li>
