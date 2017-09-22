@@ -1,0 +1,31 @@
+<section *ngIf="person">
+    <hr/>
+    <h2>Your select: {{person.name}}</h2>
+    <p>He weight: {{person.weight}} kg</p>
+    <p>He height: {{person.height}} cm</p>
+</section>
+<!-- New Form -->
+<hr/>
+<section>
+    <form #personForm="ngForm" (ngSubmit)="savePersonDetail()">
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" name="name" [(ngModel)]="person.name" required #name="ngModel">
+            <p [hidden]="name.valid || name.pristine">Name is required!</p>
+        </div>
+        <div>
+            <label for="weight">Weight: </label>
+            <input type="number" name="weight" [(ngModel)]="person.weight" required #weight="ngModel">
+            <p [hidden]="weight.valid || weight.pristine">Weight is required!</p>
+        </div>
+        <div>
+            <label for="height">Height: </label>
+            <input type="number" name="height" [(ngModel)]="person.height" required #height="ngModel">
+            <p [hidden]="height.valid || height.pristine">Height is required!</p>
+        </div>
+        <button type="submit" [disabled]="!personForm.form.valid">Save</button>
+    </form>
+</section>
+<!--New Button Here-->
+<hr/>
+<button (click)="gotoPeoplesList()">Back to peoples list</button>
